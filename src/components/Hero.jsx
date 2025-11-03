@@ -2,9 +2,9 @@ import Spline from '@splinetool/react-spline';
 
 export default function Hero() {
   return (
-    <section id="home" className="relative min-h-[80vh] lg:min-h-screen overflow-hidden flex items-center">
+    <section id="home" className="relative min-h-screen overflow-hidden flex items-center">
       <div className="absolute inset-0">
-        <Spline scene="https://prod.spline.design/VJLoxp84lCdVfdZu/scene.splinecode" style={{ width: '100%', height: '100%' }} />
+        <Spline scene="https://prod.spline.design/N8g2VNcx8Rycz93J/scene.splinecode" style={{ width: '100%', height: '100%' }} />
       </div>
 
       {/* subtle gradient vignette that does not block interaction */}
