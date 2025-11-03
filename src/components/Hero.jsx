@@ -28,18 +28,51 @@ export default function Hero() {
             </a>
           </div>
         </div>
-        <div className="hidden lg:flex items-end justify-end">
-          <div className="rounded-2xl border border-neutral-200/60 dark:border-neutral-800 bg-white/70 dark:bg-neutral-900/70 backdrop-blur p-6 w-full max-w-sm">
-            <h3 className="text-sm font-semibold text-neutral-900 dark:text-white mb-3">Specialties</h3>
-            <ul className="space-y-2 text-sm text-neutral-700 dark:text-neutral-300">
-              <li>• Brand & Social Graphics</li>
-              <li>• Motion Design & Animations</li>
-              <li>• Video Editing & Color Grading</li>
-              <li>• Thumbnail & Poster Design</li>
-            </ul>
+
+        {/* Profile image with floating software badges */}
+        <div className="relative hidden lg:flex items-center justify-center">
+          {/* container ensures overlays don't block spline interactions */}
+          <div className="pointer-events-none relative">
+            <img
+              src="https://images.unsplash.com/photo-1545996124-0501ebae84d5?q=80&w=840&auto=format&fit=crop"
+              alt="Saikat Das portrait"
+              className="pointer-events-auto h-72 w-72 rounded-full object-cover shadow-2xl ring-4 ring-white/60 dark:ring-neutral-900/60"
+            />
+
+            {/* ring glow */}
+            <div className="absolute inset-0 -z-0 rounded-full bg-gradient-to-tr from-indigo-500/20 via-fuchsia-500/20 to-emerald-500/20 blur-2xl" />
+
+            {/* floating badges */}
+            <div className="absolute -top-6 left-1/2 -translate-x-1/2">
+              <Badge label="Photoshop" short="Ps" className="bg-blue-600 text-blue-50 border-blue-400/40" />
+            </div>
+            <div className="absolute top-16 -left-6">
+              <Badge label="Illustrator" short="Ai" className="bg-orange-600 text-orange-50 border-orange-400/40" />
+            </div>
+            <div className="absolute top-24 -right-7">
+              <Badge label="Premiere Pro" short="Pr" className="bg-purple-700 text-purple-50 border-purple-400/40" />
+            </div>
+            <div className="absolute bottom-10 -left-4">
+              <Badge label="After Effects" short="Ae" className="bg-indigo-700 text-indigo-50 border-indigo-400/40" />
+            </div>
+            <div className="absolute -bottom-5 left-1/2 -translate-x-1/2">
+              <Badge label="Figma" short="F" className="bg-neutral-900 text-white border-neutral-700" />
+            </div>
+            <div className="absolute bottom-8 -right-6">
+              <Badge label="Blender" short="B" className="bg-amber-600 text-amber-50 border-amber-400/40" />
+            </div>
           </div>
         </div>
       </div>
     </section>
+  );
+}
+
+function Badge({ label, short, className }) {
+  return (
+    <div className={`pointer-events-none select-none flex items-center gap-2 rounded-full border px-3 py-1 shadow-lg backdrop-blur ${className}`}>
+      <span className="grid h-7 w-7 place-items-center rounded-md bg-white/10 text-xs font-bold uppercase tracking-wide">{short}</span>
+      <span className="text-xs font-medium text-white drop-shadow-sm">{label}</span>
+    </div>
   );
 }
